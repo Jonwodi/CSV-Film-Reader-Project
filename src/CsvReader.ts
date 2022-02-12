@@ -1,11 +1,14 @@
 import fs from 'fs';
+import { parseDate } from './utils';
 
-export  class CsvReader {
+export abstract class CsvReader {
   data: any[] = [];
 
   constructor(public filename: string) {
     this.data = this.read(filename)
   }
+
+  abstract mapRow(row: string[]): any;
 
   read(filename: string): any[] {
     return fs
@@ -14,13 +17,6 @@ export  class CsvReader {
       .map((row: string): string[] => {
         return row.split(',');
       })
-      .map((col) => {
-        return [col[0], parseInt(col[1]), col[2], this.parseDate(col[3]), col[4]]
-      })
-  }
-
-    parseDate(dateString: string): Date {
-      let date = dateString.split('/').map((d) => parseInt(d));
-      return new Date(date[2], date[1]-1, date[0]);
+      .map(this.mapRow);
   }
 }

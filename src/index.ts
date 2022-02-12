@@ -1,7 +1,7 @@
 import fs from 'fs';
-import { CsvReader } from './CsvReader'
+import { FilmReader } from './FilmReader'
 
-const reader = new CsvReader('films.csv')
+const reader = new FilmReader('films.csv')
 
 
 // console.log(films);
