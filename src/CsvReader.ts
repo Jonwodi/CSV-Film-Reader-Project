@@ -1,8 +1,7 @@
 import fs from 'fs';
-import { parseDate } from './utils';
 
-export abstract class CsvReader {
-  data: any[] = [];
+export abstract class CsvReader<T> {
+  data: T[] = [];
 
   constructor(public filename: string) {
     this.data = this.read(filename)
@@ -10,7 +9,7 @@ export abstract class CsvReader {
 
   abstract mapRow(row: string[]): any;
 
-  read(filename: string): any[] {
+  read(filename: string): T[] {
     return fs
       .readFileSync(this.filename, {encoding: 'utf8' })
       .split('\n')
