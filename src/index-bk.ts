@@ -6,7 +6,7 @@ let films = fs.readFileSync('films.csv', {encoding: 'utf8' }
   return row.split(',');
 })
 .map((col) => {
-  return [col[0], parseInt(col[1]), col[2], parseDate(col[3]), col[4]]
+  return [col[0], parseInt(col[1]), col[2], parseDate(col[3]), col[4]];
 })
 
 console.log(films);
@@ -29,5 +29,5 @@ function parseDate(dateString: string): Date {
   return new Date(date[2], date[1]-1, date[0]);
 }
 
-console.log(`${actor} appeared in ${count} films.`)
+console.log(`${actor} appeared in ${count} films.`);
 console.log(films);
