@@ -8,5 +8,5 @@ const reader = new FilmReader_1.FilmReader('films.csv');
 const analyzer = new FilmCountAnalysis_1.FilmCountAnalysis(reader.data);
 const consoleReport = new ConsoleReport_1.ConsoleReport(analyzer.run('Mel Gibson'));
 const htmlReport = new HtmlReport_1.HtmlReport(analyzer.run('Mel Gibson'));
-// consoleReport.print();
+consoleReport.print();
 htmlReport.print();

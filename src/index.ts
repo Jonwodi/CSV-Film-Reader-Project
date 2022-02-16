@@ -8,7 +8,7 @@ const analyzer = new FilmCountAnalysis(reader.data);
 const consoleReport = new ConsoleReport(analyzer.run('Mel Gibson'));
 const htmlReport = new HtmlReport(analyzer.run('Mel Gibson'));
 
-// consoleReport.print();
+consoleReport.print();
 htmlReport.print();
 
 
